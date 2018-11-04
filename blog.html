@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
+.w3-bar-block .w3-bar-item {padding:20px}
+</style>
+<body>
+
+<!-- Sidebar (hidden by default) -->
+<nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()"
+  class="w3-bar-item w3-button">Close Menu</a>
+  <a href="#food" onclick="w3_close()" class="w3-bar-item w3-button">Food</a>
+  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">About</a>
+</nav>
+
+<!-- Top menu -->
+<div class="w3-top">
+  <div class="w3-white w3-xlarge" style="max-width:1200px;margin:auto">
+    <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div>
+    <div class="w3-right w3-padding-16">Mail</div>
+    <div class="w3-center w3-padding-16">My Life</div>
+  </div>
+</div>
+  
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+
+  <!-- First Photo Grid-->
+  <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+    <div class="w3-quarter">
+      <img src="https://media.discordapp.net/attachments/160940812555780096/468892451117989888/image.jpg?width=884&height=663" alt="Sandwich" style="width:100%" width="200" height="200">
+      <h3>Cotton Candy and Camping</h3>
+      <p>A fantastic time with some good pals and relatives.</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="https://cdn.discordapp.com/attachments/160940812555780096/468893532476932096/image.jpg" alt="Steak" style="width:100%">
+      <h3>Happy Mothers' Day!</h3>
+      <p>Not many mothers in this photo however. Quite the misleading caption eh?</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="https://cdn.discordapp.com/attachments/160940812555780096/468892543740805120/image.jpg" alt="Cherries" style="width:100%">
+      <h3>Meditation Contemplation</h3>
+      <p>Rare photo of just me. It was nice to cool off at the top of a mountain on such a hot day.</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="https://cdn.discordapp.com/attachments/160940812555780096/468893882797785098/image.jpg" alt="Popsicle" style="width:100%">
+      <h3>Another Rare Photo of Me By Myself.</h3>
+      <p>Sometimes, I just need a break from people. Don't ask me how the photo was taken.</p>
+    </div>
+  </div>
+  
+  <!-- Second Photo Grid-->
+  <div class="w3-row-padding w3-padding-16 w3-center">
+    <div class="w3-quarter">
+      <img src="https://cdn.discordapp.com/attachments/160940812555780096/468899282695487499/image.jpg" alt="Popsicle" style="width:100%">
+      <h3>Couple of Youngins.</h3>
+      <p>Boy were we cute as children. Heckin smoot!</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="https://cdn.discordapp.com/attachments/160940812555780096/468893714824167446/image.jpg?width=884&height=663" alt="Cherries" style="width:100%">
+      <h3>Some Boys By the Barber Shop</h3>
+      <p>Nothing much to be said. Twas a fun night with the boys.</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="https://cdn.discordapp.com/attachments/160940812555780096/468892653451345927/image.jpg" alt="Cherries" style="width:100%">
+      <h3>Rocks On Rocks</h3>
+      <p>On rocks on rocks on rocks on rocks on rocks on rocks on rocks on rocks on rocks.</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="https://cdn.discordapp.com/attachments/160940812555780096/468894001550983188/image.jpg" alt="Croissant" style="width:100%">
+      <h3>Cool Guys Don't Look At Explosions...</h3>
+      <p>but there was no explosion to look at. Unless you consider my brother and me explosive, hyuk hyuk.</p>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
+      <a href="#" class="w3-bar-item w3-black w3-button">1</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">2</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
+    </div>
+  </div>
+  
+  <hr id="about">
+
+  <!-- About Section -->
+  <div class="w3-container w3-padding-32 w3-center">  
+    <h3>About Me! The cool man.</h3><br>
+    <img src="https://scontent.fewr1-2.fna.fbcdn.net/v/t31.0-8/1276284_10201307763247671_1235870259_o.jpg?_nc_cat=0&oh=0b132f6b9f0c9f7ad65af5b966d2d3bf&oe=5BD3936E" alt="Me" class="w3-image" style="display:block;margin:auto" width="800" height="533">
+    <div class="w3-padding-32">
+      <h4><b>Wandering soul.</b></h4>
+      <h6><i>I love some good music.</i></h6>
+      <p>I like to travel and spend time with friends. As a matter of fact, I'll do anything so long as I have some friends to do it with. Not really anything, for I have a fear of insects and the dark and many other things. On top of what was previously mentioned, I like to play a few sports and games.</p>
+    </div>
+  </div>
+  <hr>
+  
+  <!-- Footer -->
+  <footer class="w3-row-padding w3-padding-32">
+    <div class="w3-third">
+      <h3>FOOTER</h3>
+      <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    </div>
+  
+    <div class="w3-third">
+      <h3>BLOG POSTS</h3>
+      <ul class="w3-ul w3-hoverable">
+        <li class="w3-padding-16">
+          <img src="https://www.w3schools.com/w3images/workshop.jpg" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large">Lorem</span><br>
+          <span>Sed mattis nunc</span>
+        </li>
+        <li class="w3-padding-16">
+          <img src="https://www.w3schools.com/w3images/gondol.jpg" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large">Ipsum</span><br>
+          <span>Praes tinci sed</span>
+        </li> 
+      </ul>
+    </div>
+
+    <div class="w3-third w3-serif">
+      <h3>POPULAR TAGS</h3>
+      <p>
+        <span class="w3-tag w3-black w3-margin-bottom">Travel</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">New York</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Dinner</span>
+        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Salmon</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">France</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Drinks</span>
+        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Ideas</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Flavors</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Cuisine</span>
+        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Chicken</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Dressing</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Fried</span>
+        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Fish</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Duck</span>
+      </p>
+    </div>
+  </footer>
+
+<!-- End page content -->
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+
+</body>
+</html>

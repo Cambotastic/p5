@@ -1,0 +1,48 @@
+} else if (y == 700) {
+            if (x > 450) {
+                if (x < 600) {
+                    y-=0
+                } else {
+                    y-=5
+                }
+            }
+        // 2nd block
+            else if (x > 100) {
+                if (x < 250) {
+                    y-=0
+                } else {
+                    y-=5
+                }
+            } else {
+                y-=5
+            }
+        } else {
+            y-=5;
+        }
+    }
+
+
+
+
+} else if (y == 700) {
+            if (x > 100) {
+                if (x < 250) {
+                    y-=0
+                } else {
+                    y-=5
+                }
+            }
+        // 2nd block
+            else if (x > 450) {
+                if (x < 600) {
+                    y-=0
+                } else {
+                    y-=5
+                }
+            } else {
+                y-=5
+            }
+        } else {
+            y-=5;
+        }
+    }

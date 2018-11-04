@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("p").click(function () {
+                $(this).hide();
+            });
+            $("#p1").mouseenter(function () {
+                alert("You entered p1!");
+            });
+            $("#p1").mouseleave(function () {
+                alert("Bye! You now leave p1!");
+            });
+            $("input").focus(function () {
+                $(this).css("background-color", "#aquamarine");
+            });
+            $("input").blur(function () {
+                $(this).css("background-color", "#orange");
+            });
+            $("p").on({
+                mouseenter: function () {
+                    $(this).css("background-color", "lightgray");
+                },
+                mouseleave: function () {
+                    $(this).css("background-color", "lightblue");
+                },
+                click: function () {
+                    $(this).css("background-color", "yellow");
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <p>If you click on me, I will disappear.</p>
+    <p>Click me away!</p>
+    <p>Click me too!</p>
+    <!-- html comment -->
+    <h2 id="p1"> mouse enter function test. please mouse over here</h2>
+    Name:
+    <input type="text" name="fullname">
+    <br> Email:
+    <input type="text" name="email">
+
+</body>
+
+</html>

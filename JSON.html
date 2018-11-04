@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<script src="carData.js"></script>
+<body>
+
+    <h2>cars 2</h2>
+
+    <p id="demo"></p>
+    <p id="pet"></p>
+
+    <script>
+        // Create an object:
+        
+var pets = ["dog", "cat", "rabbit", "bird"];
+
+document.getElementById("pet").innerHTML = "Pet1: " + pets[0] + "<br> Pet2: " + pets[1] + "<br> Pet3: " + pets[2]
+ + "<br> Pet4: " + pets[3];
+
+// Display some data from the object:
+var carString="";
+var carObj = cars.car;
+for(var i=0; i < carObj.length; i++){
+    carString += "<br> Car type: " + carObj[i].type 
+    + "<br> Car model: " + carObj[i].model + "<br> Car color: " + carObj[i].color 
+    + "<br> Car engine: " + carObj[i].engine + "<br> Number of seats: " + carObj[i].seat 
+    + "<br> Car special: " + carObj[i].special 
+    + "<br><a href='" + carObj[i].link+"' target='_blank' ><img src="+carObj[i].image+" width = 200</a>";
+}
+document.getElementById("demo").innerHTML = "Car description: " + cars.description + carString;
+
+</script>
+
+</body>
+
+</html>

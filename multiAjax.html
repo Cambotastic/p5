@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>HAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHA</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="jQueryScript.js"></script>
+</head>
+<!-- 4.1.3 -->
+
+<body>
+    <div class="container">
+        <div class="panel panel-primary">
+            <h2>Weather Data from API</h2>
+            <button type="button" onclick="loadDoc('fort%20lee')" class="btn btn-success">Fort Lee</button>
+            <button type="button" onclick="loadDoc('paramus')" class="btn btn-danger">Paramus</button>
+            <button type="button" onclick="loadDoc('london')" class="btn btn-info">London</button>
+            <button type="button" onclick="loadDoc('seoul')" class="btn btn-warning">Seoul</button>
+            <button type="button" onclick="loadDoc('paris')" class="btn btn-primary">Paris</button>
+        </div>
+        <div id="demo" class="panel-footer">places</div>
+    </div>
+    </div>
+    <div class="container">
+        <div class="panel panel-primary">
+            <h2>Stock data</h2>
+            <button type="button" onclick="loadStock('aapl')" class="btn btn-success">APPL</button>
+            <button type="button" onclick="loadStock('googl')" class="btn btn-success">Google</button>
+            <button type="button" onclick="loadStock('amzn')" class="btn btn-success">Amazon</button>
+            <button type="button" onclick="loadStock('baba')" class="btn btn-success">Alibaba</button>
+            <button type="button" onclick="loadStock('fb')" class="btn btn-success">Facebook</button>
+        </div>
+        <div id="stock" class="panel-footer">money</div>
+    </div>
+    </div>
+    <script>
+        var country_flag = {
+            US: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1280px-Flag_of_the_United_States.svg.png',
+            KR: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/255px-Flag_of_South_Korea.svg.png',
+            FR: 'https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/1200px-Flag_of_France.svg.png',
+            GB: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1280px-Flag_of_the_United_Kingdom.svg.png'
+        }
+        var weather_type = {
+            light_rain: 'https://content.mycutegraphics.com/graphics/rain/rain-cloud.png',
+            rainy: 'http://worldartsme.com/images/rainy-clouds-clipart-1.jpg',
+            cloudy: 'https://i.pinimg.com/originals/23/eb/fc/23ebfcc40b2fe012cbf8be46bc130245.png',
+            clear_sky: 'https://www.solidbackgrounds.com/images/3840x2160/3840x2160-deep-sky-blue-solid-color-background.jpg',
+            mist: 'https://farm4.staticflickr.com/3899/14992859322_514b0cb18d_b.jpg',
+            few_clouds: 'https://us.123rf.com/450wm/gearstd/gearstd1502/gearstd150200106/36433142-%ED%83%9C%EC%96%91%EA%B3%BC-%EA%B5%AC%EB%A6%84%EA%B3%BC-%EB%A7%91%EC%9D%80-%ED%91%B8%EB%A5%B8-%ED%95%98%EB%8A%98-%EB%8B%A8%EC%88%9C%ED%95%9C-%EA%B9%A8%EB%81%97%ED%95%9C-%EB%B0%B0%EA%B2%BD-%EC%9D%BC%EB%9F%AC%EC%8A%A4%ED%8A%B8-%EB%A0%88%EC%9D%B4%EC%85%98.jpg?ver=6'
+        }
+        var stock_logo = {
+            aapl: 'https://image.freepik.com/free-icon/apple-logo_318-40184.jpg',
+            googl: 'https://upload.wikimedia.org/wikipedia/commons/3/30/Googlelogo.png',
+            amzn: 'https://amp.businessinsider.com/images/539f3ffbecad044276726c01-750-273.jpg',
+            baba: 'http://www.magneticstate.com/blogdept/wp-content/uploads/2014/09/alibaba-logo-300x131.png',
+            fb: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Facebook_logo_%28square%29.png/600px-Facebook_logo_%28square%29.png'
+        }
+
+        function loadDoc(city) {
+            var xhttp = new XMLHttpRequest();
+            var myObj;
+            var city = city;
+            var apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=bec6ba9742b36bfd08753e637d2a47fc";
+
+
+
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    //document.getElementById("demo").innerHTML =
+                    var temp_text = this.responseText;
+                    myObj = JSON.parse(temp_text);
+                    var cuntName = myObj.sys.country;
+                    var cityName = myObj.name;
+                    var temp_kel = myObj.main.temp;
+                    var temp_cel = temp_kel - 273;
+                    var temp_fah = temp_cel * 1.8 - 32;
+                    var weatherDesc = myObj.weather[0].description;
+                    var weather_img;
+                    var img_path;
+                    if (cuntName == "KR") {
+                        img_path = country_flag.KR;
+                    } else if (cuntName == "US") {
+                        img_path = country_flag.US;
+                    } else if (cuntName == "FR") {
+                        img_path = country_flag.FR;
+                    } else if (cuntName == "GB") {
+                        img_path = country_flag.GB;
+                    }
+                    if (weatherDesc.includes("rain")) {
+                        weather_img = weather_type.light_rain;
+                    } else if (weatherDesc.includes("cloud")) {
+                        weather_img = weather_type.cloudy;
+                    } else if (weatherDesc.includes("mist")) {
+                        weather_img = weather_type.mist;
+                    } else if (weatherDesc == "clear sky") {
+                        weather_img = weather_type.clear_sky;
+                    }
+                    document.getElementById("demo").innerHTML = "<div>" + "Country: " + cuntName + "<br> <img src='" + img_path + "' class='img-thumbnail' width=170> <br>" + cityName
+                        + "<br> Temperature: " + temp_cel + "&#8451; (Fahrenheit: " + temp_fah + "&#0176;   F)" + "</div>"
+                        + "<br> Weather: " + weatherDesc + "<br> <img src='" + weather_img + "' class='img-thumbnail' width=170>";
+                }
+            };
+            xhttp.open("GET", apiUrl, true);
+            xhttp.send();
+        }
+        function loadStock(stock) {
+            var xhttp = new XMLHttpRequest();
+            var myObj;
+            var stock = stock;
+            var apiUrl = "https://api.iextrading.com/1.0/stock/" + stock + "/batch?types=quote,news,chart&range=1m&last=10";
+            var stock_logo_img;
+
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    //document.getElementById("demo").innerHTML =
+                    var temp_text = this.responseText;
+                    myObj = JSON.parse(temp_text);
+                    var symbol = myObj.quote.symbol;
+                    if (symbol == "AAPL") {
+                        stock_logo_img = stock_logo.aapl;
+                    } else if (symbol == "GOOGL") {
+                        stock_logo_img = stock_logo.googl;
+                    } else if (symbol == "AMZN") {
+                        stock_logo_img = stock_logo.amzn;
+                    } else if (symbol == "BABA") {
+                        stock_logo_img = stock_logo.baba;
+                    } else if (symbol == "FB") {
+                        stock_logo_img = stock_logo.fb;
+                    }
+                    var latestPrice = myObj.quote.latestPrice;
+                    var companyName = myObj.quote.companyName;
+
+                    document.getElementById("stock").innerHTML = "<div class='section'>Symbol: " + symbol
+                        + "<img src='" + stock_logo_img + "' width=300 ></div> <div class='section'>Company Name: "
+                        + companyName + "</div> <div class='section'>Price: $" + latestPrice;
+                    /*--
+                    "<div>" + "Country: " + cuntName + "<br> <img src='" + img_path + "' class='img-thumbnail' width=50> <br>" + cityName 
+                        + "<br> Temperature: " + temp_cel + "&#8451; (Fahrenheit: " + temp_fah + "&#0176;   F)" + "</div>"
+                        + "<br> Weather: " + weatherDesc + "<br> <img src='" + weather_img + "' class='img-thumbnail' width=50>";
+                        --*/
+                }
+            };
+            xhttp.open("GET", apiUrl, true);
+            xhttp.send();
+        }
+    </script>
+
+</body>
+
+</html>

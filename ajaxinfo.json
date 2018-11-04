@@ -1,0 +1,42 @@
+{
+    "coord": {
+        "lon": 126.98,
+        "lat": 37.57
+    },
+    "weather": [
+        {
+            "id": 800,
+            "main": "Clear",
+            "description": "clear sky",
+            "icon": "01n"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 293.48,
+        "pressure": 1001,
+        "humidity": 64,
+        "temp_min": 292.15,
+        "temp_max": 296.15
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 5.1,
+        "deg": 290
+    },
+    "clouds": {
+        "all": 0
+    },
+    "dt": 1536089400,
+    "sys": {
+        "type": 1,
+        "id": 7668,
+        "message": 0.0042,
+        "country": "KR",
+        "sunrise": 1536008704,
+        "sunset": 1536054975
+    },
+    "id": 1835848,
+    "name": "Seoul",
+    "cod": 200
+}

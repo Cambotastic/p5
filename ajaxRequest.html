@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <div id="demo">
+                <h2>The XMLHttpRequest Object</h2>
+                <button type="button" onclick="loadDoc()" class="btn btn-danger">Change Content</button>
+                <button type="button" onclick="loadDoc()" class="btn btn-danger">Change Content</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function loadDoc() {
+            var xhttp = new XMLHttpRequest();
+            var myObj;
+            var country_flag = {
+                US: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1280px-Flag_of_the_United_States.svg.png',
+                KR: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/255px-Flag_of_South_Korea.svg.png'
+            }
+            var weather_type = {
+                light_rain: 'https://content.mycutegraphics.com/graphics/rain/rain-cloud.png',
+                rainy: 'http://worldartsme.com/images/rainy-clouds-clipart-1.jpg',
+                cloudy: 'https://i.pinimg.com/originals/23/eb/fc/23ebfcc40b2fe012cbf8be46bc130245.png',
+                
+            }
+
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    //document.getElementById("demo").innerHTML =
+                        var temp_text = this.responseText;
+                        myObj = JSON.parse(temp_text);
+                        var cuntName = myObj.sys.country;
+                        var cityName = myObj.name;
+                        var temp_kel = myObj.main.temp;
+                        var temp_cel = temp_kel - 273;
+                        var temp_fah = temp_cel * 1.8 - 32;
+                        var weatherDesc = myObj.weather[0].description;
+                        var weather_img;
+                        if (cuntName == "KR"){
+                            var img_path = country_flag.KR;
+                        } else if (cuntName == "US") {
+                            img_path = country_flag.US;
+                        }
+                        if (weatherDesc == "light rain"){
+                            weather_img = weather_type.light_rain
+                        }
+                        document.getElementById("demo").innerHTML = "<div>" + "Country: " + cuntName + "<br> <img src='" + img_path + "' class='img-thumbnail' width=50> <br>" + cityName 
+                            + "<br> Temperature: " + temp_cel + "&#8451; (Fahrenheit: " + temp_fah + "&#0176;   F)" + "</div>"
+                            + "<br> Weather: " + weatherDesc + "<br> <img src='" + weather_img + "' class='img-thumbnail' width=50>";
+                }
+            };
+            xhttp.open("GET", "http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=bec6ba9742b36bfd08753e637d2a47fc", true);
+            xhttp.send();
+        }
+    </script>
+
+</body>
+
+</html>
